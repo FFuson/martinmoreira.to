@@ -1,0 +1,278 @@
+:root {
+    --dark-bg: #0d1117;
+    --primary-text: #e6edf3;
+    --accent-blue: #58a6ff;
+    --accent-purple: #c975e1;
+    --accent-green-muted: #3fb950;
+    --accent-red-muted: #f85149;
+    --border-color: #30363d;
+    --card-bg: #161b22;
+    --terminal-bg: #010409;
+    --terminal-prompt-user: var(--accent-blue);
+    --terminal-prompt-host: var(--accent-green-muted);
+    --terminal-text: #c9d1d9;
+    --text-description-terminal: #8b949e; /* Color para descripciones en 'ayuda' */
+}
+
+html {
+    font-size: 95%;
+}
+
+body {
+    font-family: 'Cascadia Code', 'Roboto Mono', monospace;
+    background-color: var(--dark-bg);
+    color: var(--primary-text);
+    transition: background-color 0.2s ease-out;
+}
+
+.tech-border {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 7px rgba(88, 166, 255, 0.15);
+}
+
+.tech-border-accent {
+    border: 1px solid var(--accent-blue);
+}
+
+.tech-text-blue {
+    color: var(--accent-blue);
+    text-shadow: 0 0 4px rgba(88, 166, 255, 0.4);
+}
+.tech-text-purple {
+    color: var(--accent-purple);
+    text-shadow: 0 0 4px rgba(201, 117, 225, 0.4);
+}
+.tech-text-green {
+    color: var(--accent-green-muted);
+}
+.tech-text-red {
+    color: var(--accent-red-muted);
+}
+
+.card-background {
+    background-color: var(--card-bg);
+}
+
+.tech-button {
+    background-color: transparent;
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Cascadia Code', 'Roboto Mono', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-radius: 5px;
+}
+
+.tech-button:hover {
+    background-color: var(--accent-blue);
+    color: var(--dark-bg);
+    box-shadow: 0 0 8px var(--accent-blue), 0 0 12px var(--accent-blue);
+}
+
+/* Language Switcher Styles */
+#lang-switcher {
+    /* Posicionado con Tailwind en el HTML: fixed top-4 right-4 z-50 */
+}
+
+#lang-switcher .lang-button {
+    background-color: rgba(13, 17, 23, 0.7); /* Fondo semi-transparente oscuro */
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    opacity: 0.7;
+    padding: 0.25rem 0.5rem; /* Más pequeño para botones de idioma */
+    font-size: 0.75rem; /* Texto más pequeño */
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#lang-switcher .lang-button.active-lang {
+    background-color: var(--accent-blue);
+    color: var(--dark-bg);
+    opacity: 1;
+    font-weight: bold;
+}
+
+#lang-switcher .lang-button:hover:not(.active-lang) {
+    opacity: 1;
+    background-color: rgba(88, 166, 255, 0.2); /* Hover sutil */
+}
+
+
+.typing-effect {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
+    border-right: .12em solid var(--accent-blue);
+}
+.typing-effect-delayed {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end) 1s forwards, blink-caret .75s step-end 1s infinite;
+    border-right: .12em solid var(--accent-blue);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-blue); }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 8px;
+    border: 1.5px solid var(--dark-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+.text-accent-blue { color: var(--accent-blue); }
+.text-accent-purple { color: var(--accent-purple); }
+.text-accent-green { color: var(--accent-green-muted); }
+.text-primary { color: var(--primary-text); }
+.text-subtle { color: #8b949e; }
+
+.service-card {
+    border: 1px solid rgba(201, 117, 225, 0.25);
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: transform, box-shadow;
+}
+
+.service-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(201, 117, 225, 0.18), 0 0 12px var(--accent-purple);
+    border-color: var(--accent-purple);
+}
+
+.code-comment {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.65;
+    margin-top: 0.4rem;
+}
+
+/* Estilos para la terminal */
+.terminal-section-container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.terminal {
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.2rem;
+    font-family: 'Cascadia Code', 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    height: 450px;
+    overflow-y: auto;
+    color: var(--terminal-text);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.terminal-output div {
+    margin-bottom: 0.25rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.terminal-prompt-line {
+    display: flex;
+    align-items: center;
+    margin-top: 0.4rem;
+}
+
+.terminal-prompt span.user {
+    color: var(--terminal-prompt-user);
+    font-weight: bold;
+}
+.terminal-prompt span.host {
+    color: var(--terminal-prompt-host);
+    font-weight: bold;
+}
+.terminal-prompt span.path {
+    color: var(--accent-purple);
+}
+.terminal-prompt span.dollar {
+    color: var(--primary-text);
+    margin-left: 0.2rem;
+    margin-right: 0.4rem;
+}
+
+.terminal-input {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-text);
+    font-family: 'Cascadia Code', 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    outline: none;
+    flex-grow: 1;
+    padding-left: 0.2rem;
+}
+.terminal-input::placeholder {
+    color: rgba(201, 209, 217, 0.35);
+}
+.filename {
+    color: var(--primary-text);
+}
+.directoryname {
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+.success-text {
+    color: var(--accent-green-muted);
+}
+.error-text {
+    color: var(--accent-red-muted);
+}
+.challenge-text {
+    color: var(--accent-purple);
+    font-style: italic;
+}
+.ascii-banner span {
+    display: block;
+    line-height: 1;
+    white-space: pre;
+    font-size: 0.9em;
+}
+.terminal-description {
+    color: var(--text-description-terminal);
+    font-style: italic;
+}
+
+/* Efecto hover para letras individuales */
+.cyber-letter {
+    display: inline-block;
+    position: relative;
+    transition: color 0.05s ease-in-out, transform 0.05s ease-in-out;
+}
+
+.cyber-letter.glitching {
+    color: var(--accent-purple) !important;
+    transform: translate(1px, -1px) skewX(-5deg) scale(1.1);
+    text-shadow: 0 0 2px var(--accent-purple), 0 0 4px var(--accent-red-muted);
+    animation: quickGlitch 0.08s forwards;
+}
+
+@keyframes quickGlitch {
+    0% { transform: translate(0,0) skewX(0) scale(1); opacity: 1;}
+    50% { transform: translate(0.5px, -0.5px) skewX(-2deg) scale(1.05); opacity: 0.8;}
+    100% { transform: translate(0,0) skewX(0) scale(1); opacity: 1;}
+}

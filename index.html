@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="page_title">Martín Moreira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-3 selection:bg-accent-purple selection:text-dark-bg">
+
+    <div id="lang-switcher" class="fixed top-4 right-4 z-50">
+        <button data-lang="es" class="lang-button active-lang px-2 py-1 text-xs tech-button">ES</button>
+        <button data-lang="en" class="lang-button px-2 py-1 text-xs tech-button ml-1">EN</button>
+    </div>
+
+    <div id="main-container" class="w-full max-w-5xl mx-auto card-background p-5 md:p-8 rounded-lg tech-border relative">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold tech-text-purple" data-text-content>
+                <span class="typing-effect" data-lang-key="header_name_typing">[Martín_Moreira]</span>
+            </h1>
+            <p class="text-lg md:text-xl tech-text-green mt-2" data-text-content>
+                 <span class="typing-effect-delayed" data-lang-key="header_subtitle_typing"> // Desarrollador Web_</span>
+            </p>
+            <span class="code-comment text-accent-blue text-xs" data-text-content data-lang-key="comment_auth_complete">// auth_sequence_complete: user_verified</span>
+            <span class="code-comment text-accent-green text-xs" data-text-content data-lang-key="comment_secure_channel">// secure_channel_established: true</span>
+        </header>
+
+        <nav class="mb-10">
+            <ul class="flex flex-col items-center space-y-3 md:flex-row md:justify-center md:space-y-0 md:space-x-6">
+                <li><a href="#sobre-mi" class="tech-button text-sm w-full text-center md:w-auto" data-text-content data-lang-key="nav_about">Sobre Mí</a></li>
+                <li><a href="#experiencia" class="tech-button text-sm w-full text-center md:w-auto" data-text-content data-lang-key="nav_experience">Experiencia</a></li>
+                <li><a href="#contacto" class="tech-button text-sm w-full text-center md:w-auto" data-text-content data-lang-key="nav_contact">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <section id="terminal-interactiva" class="terminal-section-container">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 tech-text-blue text-center" data-text-content data-lang-key="terminal_section_title">// Consola Segura _</h2>
+            <div class="terminal" id="terminal">
+                <div class="terminal-output" id="terminalOutput">
+                    </div>
+                <div class="terminal-prompt-line" id="promptLine">
+                    <div class="terminal-prompt" id="terminalPromptDisplay">
+                        <span class="user" data-lang-key="terminal_prompt_alias">[TU_ALIAS]</span>@<span class="host" data-lang-key="terminal_prompt_host">experto-seguridad</span>:<span class="path">~</span><span class="dollar">$</span>
+                    </div>
+                    <input type="text" class="terminal-input" id="terminalInput" autofocus autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+            <span class="code-comment text-accent-green mt-3 text-center text-xs" data-text-content data-lang-key="comment_shell_loaded">// shell_interface_loaded: awaiting_input</span>
+        </section>
+
+        <section id="sobre-mi" class="mb-10 p-5 tech-border-accent rounded-md card-background">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 tech-text-blue" data-text-content data-lang-key="about_section_title">// Sobre Mí</h2>
+            <p class="text-subtle leading-relaxed text-sm" data-text-content data-lang-key="about_section_paragraph">
+                Soy un especialista en ciberseguridad y desarrollo web con una sólida formación académica y experiencia práctica en el mantenimiento de webs conocidas y creación de nuevas aplicaciones, principalmente desarrolladas en PHP. Busco constantemente aplicar mis conocimientos para abordar desafíos complejos y contribuir significativamente a los proyectos.</p>
+        </section>
+
+        <section id="experiencia" class="mb-10 p-5 tech-border-accent rounded-md card-background">
+            <h2 class="text-xl md:text-2xl font-semibold mb-5 tech-text-blue" data-text-content data-lang-key="experience_section_title">// Experiencia Académica y Profesional_</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="service-card p-3 rounded-md">
+                    <div>
+                        <h3 class="text-lg font-bold text-accent-purple mb-1" data-text-content data-lang-key="exp1_title">Sistemas Microinformáticos y Redes</h3>
+                        <p class="text-subtle text-xs mb-1" data-text-content data-lang-key="exp1_loc_date"><span class="font-semibold">Colegio Tres Olivos</span> | 2020 - 2022</p>
+                        <p class="text-subtle text-xs" data-text-content data-lang-key="exp1_desc">Durante esta etapa, adquirí una base fundamental en la administración de sistemas y redes.</p>
+                    </div>
+                </div>
+                <div class="service-card p-3 rounded-md">
+                    <div>
+                        <h3 class="text-lg font-bold text-accent-purple mb-1" data-text-content data-lang-key="exp2_title">Desarrollo de aplicaciones web</h3>
+                        <p class="text-subtle text-xs mb-1" data-text-content data-lang-key="exp2_loc_date"><span class="font-semibold">ESIC</span> | 2022 - 2024</p>
+                        <p class="text-subtle text-xs" data-text-content data-lang-key="exp2_desc">Me capacité en el ciclo completo de desarrollo de aplicaciones web, con un énfasis en HTML, CSS, JS y PHP.</p>
+                    </div>
+                </div>
+                <div class="service-card p-3 rounded-md">
+                    <div>
+                        <h3 class="text-lg font-bold text-accent-purple mb-1" data-text-content data-lang-key="exp3_title">Máster en Ciber Seguridad</h3>
+                        <p class="text-subtle text-xs mb-1" data-text-content data-lang-key="exp3_loc_date"><span class="font-semibold">IFP</span> | 2024 - 2025</p>
+                        <p class="text-subtle text-xs" data-text-content data-lang-key="exp3_desc">Me formé en la protección de sistemas informáticos, redes y datos frente a amenazas digitales. Aprendí a identificar vulnerabilidades, gestionar riesgos y aplicar metodologías de análisis forense, hacking ético y pruebas de penetración.</p>
+                    </div>
+                </div>
+                <div class="service-card p-3 rounded-md">
+                    <div>
+                        <h3 class="text-lg font-bold text-accent-purple mb-1" data-text-content data-lang-key="exp4_title">Desarrollador Web</h3>
+                        <p class="text-subtle text-xs mb-1" data-text-content data-lang-key="exp4_loc_date"><span class="font-semibold">Varadero Software Factory</span> | 2024 - Actualidad</p>
+                        <p class="text-subtle text-xs" data-text-content data-lang-key="exp4_desc">Como Desarrollador Web, aplico mis conocimientos en la creación y mantenimiento de aplicaciones seguras y eficientes. Mi rol incluye la participación activa en el mantenimiento y desarrollo de aplicaciones web. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="p-5 tech-border-accent rounded-md card-background mb-10">
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 tech-text-blue" data-text-content data-lang-key="contact_section_title">// Contacto</h2>
+            <p class="text-subtle mb-3 text-sm" data-text-content data-lang-key="contact_section_paragraph">
+               Si tienes alguna pregunta, propuesta de colaboración o simplemente quieres conectar, no dudes en contactarme. Estoy abierto a nuevas oportunidades y desafíos en el mundo de la ciberseguridad y el desarrollo web. ¡Espero tu mensaje!
+            </p>
+            <div class="space-y-2">
+                <p class="text-base" data-text-content><span class="text-accent-purple font-bold" data-lang-key="contact_email_label">Email:</span> <a href="mailto:martinmoreira.to@gmail.com" class="hover:text-accent-blue transition-colors duration-300">mmoreira.to@gmail.com</a></p>
+                <p class="text-base" data-text-content><span class="text-accent-purple font-bold" data-lang-key="contact_github_label">GitHub:</span> <span class="hover:text-accent-blue transition-colors duration-300">[FFuson]</span></p> <p class="text-base" data-text-content><span class="text-accent-purple font-bold" data-lang-key="contact_linkedin_label">LinkedIn:</span> <a href="#" class="hover:text-accent-blue transition-colors duration-300" data-lang-key="contact_linkedin_profile_placeholder">[Tu Perfil de LinkedIn]</a></p>
+            </div>
+            <span class="code-comment text-accent-blue mt-3 text-xs" data-text-content data-lang-key="comment_e2e_active">// e2e_encryption_layer: active</span>
+            <span class="code-comment text-accent-green mt-1 text-xs" data-text-content data-lang-key="comment_comms_link_handshake">// secure_comms_link: established_awaiting_handshake</span>
+            <span class="code-comment text-subtle mt-1 text-xs" data-text-content data-lang-key="comment_session_terminate">// session.terminate();</span>
+        </section>
+
+        <footer class="mt-10 pt-5 border-t border-border-color text-center">
+            <p class="text-xs text-subtle" data-text-content>&copy; <span id="currentYear"></span> <span data-lang-key="footer_copyright">Martín Moreira García.</span></p>
+            <span class="code-comment text-subtle mt-2 text-xs" data-text-content data-lang-key="comment_logoff_initiated">// system_logoff_initiated: audit_trail_saved</span>
+            <span class="code-comment text-accent-blue text-xs" data-text-content data-lang-key="comment_mission_accomplished">// mission_status: accomplished_securely</span>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
