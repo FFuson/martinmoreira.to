@@ -3,7 +3,7 @@
  * Incluye internacionalización (i18n), efectos de tipeo, efecto "glitch" en texto,
  * y una terminal interactiva simulada.
  *
- * @author Martín Moreira (Basado en el código proporcionado)
+ * @author Martín Moreira
  * @version 1.0.0
  */
 
