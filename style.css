@@ -1,39 +1,67 @@
+/**
+ * @file styles.css
+ * Hoja de estilos principal para el portafolio interactivo.
+ * Define el esquema de colores, tipografía, estilos base, componentes de UI
+ * como botones, tarjetas, el selector de idioma, la terminal simulada,
+ * y efectos visuales como el tipeo y el "glitch" en texto.
+ *
+ * @author Martín Moreira
+ * @version 1.0.0
+ */
+
+/*-----------------------------------------------------------------------------
+ * VARIABLES GLOBALES (CUSTOM PROPERTIES)
+ *-----------------------------------------------------------------------------*/
 :root {
-    --dark-bg: #0d1117;
-    --primary-text: #e6edf3;
-    --accent-blue: #58a6ff;
-    --accent-purple: #c975e1;
-    --accent-green-muted: #3fb950;
-    --accent-red-muted: #f85149;
-    --border-color: #30363d;
-    --card-bg: #161b22;
-    --terminal-bg: #010409;
-    --terminal-prompt-user: var(--accent-blue);
-    --terminal-prompt-host: var(--accent-green-muted);
-    --terminal-text: #c9d1d9;
-    --text-description-terminal: #8b949e; /* Color para descripciones en 'ayuda' */
+    /* Esquema de colores principal - Tema oscuro inspirado en interfaces "tech" */
+    --dark-bg: #0d1117;                 /* Fondo principal muy oscuro */
+    --primary-text: #e6edf3;            /* Color de texto principal, claro y legible */
+    --accent-blue: #58a6ff;             /* Azul de acento brillante */
+    --accent-purple: #c975e1;           /* Púrpura de acento vibrante */
+    --accent-green-muted: #3fb950;      /* Verde de acento, para éxito o información positiva */
+    --accent-red-muted: #f85149;        /* Rojo de acento, para errores o advertencias */
+    --border-color: #30363d;            /* Color para bordes sutiles */
+    --card-bg: #161b22;                 /* Fondo para elementos tipo "tarjeta" o contenedores */
+
+    /* Variables específicas para la terminal */
+    --terminal-bg: #010409;             /* Fondo ultra oscuro para la terminal */
+    --terminal-prompt-user: var(--accent-blue); /* Color para el nombre de usuario en el prompt */
+    --terminal-prompt-host: var(--accent-green-muted); /* Color para el host en el prompt */
+    --terminal-text: #c9d1d9;           /* Color de texto general dentro de la terminal */
+    --text-description-terminal: #8b949e; /* Color para descripciones en comandos como 'ayuda' */
 }
 
+/*-----------------------------------------------------------------------------
+ * ESTILOS BASE Y RESET MÍNIMO
+ *-----------------------------------------------------------------------------*/
 html {
+    /* Ajuste ligero del tamaño de fuente base para mayor comodidad visual */
     font-size: 95%;
 }
 
 body {
-    font-family: 'Cascadia Code', 'Roboto Mono', monospace;
+    font-family: 'Cascadia Code', 'Roboto Mono', monospace; /* Fuentes monoespaciadas para un look "tech" */
     background-color: var(--dark-bg);
     color: var(--primary-text);
-    transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out; /* Transición suave para cambios de tema futuros */
 }
 
+/*-----------------------------------------------------------------------------
+ * CLASES DE UTILIDAD GENERAL
+ *-----------------------------------------------------------------------------*/
+
+/* Borde estándar con una sombra sutil */
 .tech-border {
     border: 1px solid var(--border-color);
-    box-shadow: 0 0 7px rgba(88, 166, 255, 0.15);
+    box-shadow: 0 0 7px rgba(88, 166, 255, 0.15); /* Sombra sutil azulada */
 }
 
+/* Borde acentuado con el color azul principal */
 .tech-border-accent {
     border: 1px solid var(--accent-blue);
 }
 
+/* Clases de utilidad para colores de texto con efecto de sombra sutil */
 .tech-text-blue {
     color: var(--accent-blue);
     text-shadow: 0 0 4px rgba(88, 166, 255, 0.4);
@@ -49,17 +77,19 @@ body {
     color: var(--accent-red-muted);
 }
 
+/* Fondo para elementos tipo tarjeta */
 .card-background {
     background-color: var(--card-bg);
 }
 
+/* Estilo base para botones con temática "tech" */
 .tech-button {
     background-color: transparent;
     border: 1px solid var(--accent-blue);
     color: var(--accent-blue);
     padding: 0.5rem 1rem;
     transition: all 0.3s ease;
-    font-family: 'Cascadia Code', 'Roboto Mono', sans-serif;
+    font-family: 'Cascadia Code', 'Roboto Mono', sans-serif; /* Asegura consistencia tipográfica */
     text-transform: uppercase;
     letter-spacing: 0.8px;
     border-radius: 5px;
@@ -67,27 +97,31 @@ body {
 
 .tech-button:hover {
     background-color: var(--accent-blue);
-    color: var(--dark-bg);
-    box-shadow: 0 0 8px var(--accent-blue), 0 0 12px var(--accent-blue);
+    color: var(--dark-bg); /* Contraste al hacer hover */
+    box-shadow: 0 0 8px var(--accent-blue), 0 0 12px var(--accent-blue); /* Efecto de resplandor */
 }
 
-/* Language Switcher Styles */
+/*-----------------------------------------------------------------------------
+ * SELECTOR DE IDIOMA (LANG SWITCHER)
+ *-----------------------------------------------------------------------------*/
 #lang-switcher {
-    /* Posicionado con Tailwind en el HTML: fixed top-4 right-4 z-50 */
+    /* El posicionamiento (fixed top-4 right-4 z-50) se maneja con Tailwind en el HTML. */
+    /* Este bloque CSS se centra en la apariencia de los botones internos. */
 }
 
 #lang-switcher .lang-button {
-    background-color: rgba(13, 17, 23, 0.7); /* Fondo semi-transparente oscuro */
+    background-color: rgba(13, 17, 23, 0.7); /* Fondo oscuro semi-transparente para flotar sobre contenido */
     border: 1px solid var(--accent-blue);
     color: var(--accent-blue);
-    opacity: 0.7;
-    padding: 0.25rem 0.5rem; /* Más pequeño para botones de idioma */
+    opacity: 0.7; /* Ligeramente transparente cuando no está activo/hover */
+    padding: 0.25rem 0.5rem; /* Padding más pequeño para botones de idioma compactos */
     font-size: 0.75rem; /* Texto más pequeño */
     text-transform: uppercase;
     border-radius: 4px;
     cursor: pointer;
 }
 
+/* Estilo para el botón de idioma activo */
 #lang-switcher .lang-button.active-lang {
     background-color: var(--accent-blue);
     color: var(--dark-bg);
@@ -95,110 +129,137 @@ body {
     font-weight: bold;
 }
 
+/* Efecto hover sutil para botones de idioma no activos */
 #lang-switcher .lang-button:hover:not(.active-lang) {
     opacity: 1;
-    background-color: rgba(88, 166, 255, 0.2); /* Hover sutil */
+    background-color: rgba(88, 166, 255, 0.2); /* Fondo azulado translúcido */
 }
 
+/*-----------------------------------------------------------------------------
+ * EFECTOS DE TIPEO (TYPING EFFECTS)
+ *-----------------------------------------------------------------------------*/
+.typing-effect,
+.typing-effect-delayed {
+    width: 0; /* Inicia sin ancho, se anima a 100% */
+    overflow: hidden; /* Oculta el texto que aún no "aparece" */
+    white-space: nowrap; /* Mantiene el texto en una sola línea */
+    /* El borde derecho simula el cursor de tipeo */
+    border-right: .12em solid var(--accent-blue);
+}
 
 .typing-effect {
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
+    /* La animación 'typing' expande el ancho, 'blink-caret' anima el cursor */
     animation: typing 3.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
-    border-right: .12em solid var(--accent-blue);
-}
-.typing-effect-delayed {
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 3.5s steps(40, end) 1s forwards, blink-caret .75s step-end 1s infinite;
-    border-right: .12em solid var(--accent-blue);
 }
 
+.typing-effect-delayed {
+    /* Similar al anterior, pero con un retraso en el inicio de las animaciones */
+    animation: typing 3.5s steps(40, end) 1s forwards, blink-caret .75s step-end 1s infinite;
+}
+
+/* Animación para el efecto de tipeo: expande el ancho del elemento */
 @keyframes typing {
     from { width: 0 }
-    to { width: 100% }
+    to { width: 100% } /* El ancho final dependerá del contenido */
 }
 
+/* Animación para el parpadeo del cursor del efecto de tipeo */
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--accent-blue); }
+    from, to { border-color: transparent } /* Cursor invisible */
+    50% { border-color: var(--accent-blue); } /* Cursor visible (color de acento) */
 }
 
+/*-----------------------------------------------------------------------------
+ * ESTILOS DE BARRA DE DESPLAZAMIENTO (SCROLLBAR) - Webkit específico
+ *-----------------------------------------------------------------------------*/
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 8px;  /* Ancho de la barra de desplazamiento vertical */
+    height: 8px; /* Altura de la barra de desplazamiento horizontal */
 }
 ::-webkit-scrollbar-track {
-    background: var(--dark-bg);
+    background: var(--dark-bg); /* Fondo del "camino" de la barra */
     border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+    background: var(--border-color); /* Color del "pulgar" o la parte móvil */
     border-radius: 8px;
+    /* Borde sutil para que el pulgar parezca flotar sobre el track */
     border: 1.5px solid var(--dark-bg);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-blue);
+    background: var(--accent-blue); /* Cambia de color al pasar el ratón */
 }
 
+/*-----------------------------------------------------------------------------
+ * CLASES DE UTILIDAD DE TEXTO ADICIONALES
+ *-----------------------------------------------------------------------------*/
 .text-accent-blue { color: var(--accent-blue); }
 .text-accent-purple { color: var(--accent-purple); }
 .text-accent-green { color: var(--accent-green-muted); }
 .text-primary { color: var(--primary-text); }
-.text-subtle { color: #8b949e; }
+.text-subtle { color: #8b949e; } /* Un gris suave para texto menos importante */
 
+/*-----------------------------------------------------------------------------
+ * ESTILOS PARA TARJETAS DE SERVICIO (SERVICE CARD)
+ *-----------------------------------------------------------------------------*/
 .service-card {
-    border: 1px solid rgba(201, 117, 225, 0.25);
-    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(201, 117, 225, 0.25); /* Borde púrpura translúcido */
+    background-color: rgba(0, 0, 0, 0.15);      /* Fondo oscuro translúcido */
     transition: transform 0.2s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+    /* 'will-change' puede ayudar al navegador a optimizar las animaciones */
     will-change: transform, box-shadow;
 }
 
 .service-card:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 18px rgba(201, 117, 225, 0.18), 0 0 12px var(--accent-purple);
-    border-color: var(--accent-purple);
+    transform: translateY(-3px) scale(1.02); /* Ligera elevación y escala */
+    box-shadow: 0 8px 18px rgba(201, 117, 225, 0.18), 0 0 12px var(--accent-purple); /* Sombra púrpura */
+    border-color: var(--accent-purple); /* Borde se vuelve opaco y púrpura */
 }
 
+/* Estilo para simular comentarios de código en la UI */
 .code-comment {
-    display: block;
-    font-size: 0.7rem;
-    opacity: 0.65;
-    margin-top: 0.4rem;
+    display: block; /* Asegura que ocupe su propia línea */
+    font-size: 0.7rem; /* Texto pequeño */
+    opacity: 0.65; /* Texto semi-transparente */
+    margin-top: 0.4rem; /* Espacio superior */
 }
 
-/* Estilos para la terminal */
+/*-----------------------------------------------------------------------------
+ * ESTILOS PARA LA TERMINAL INTERACTIVA
+ *-----------------------------------------------------------------------------*/
 .terminal-section-container {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Espacio inferior para la sección de la terminal */
 }
+
 .terminal {
     background-color: var(--terminal-bg);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 1.2rem;
-    font-family: 'Cascadia Code', 'Roboto Mono', monospace;
-    font-size: 0.85rem;
-    height: 450px;
+    font-family: 'Cascadia Code', 'Roboto Mono', monospace; /* Consistencia tipográfica */
+    font-size: 0.85rem; /* Ligeramente más pequeño que el texto base del cuerpo */
+    height: 450px; /* Altura fija, con overflow para scroll */
     overflow-y: auto;
     color: var(--terminal-text);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5); /* Sombra profunda para efecto de "elevación" */
 }
 
+/* Estilo para cada línea de salida en la terminal */
 .terminal-output div {
-    margin-bottom: 0.25rem;
-    white-space: pre-wrap;
-    word-break: break-all;
+    margin-bottom: 0.25rem; /* Pequeño espacio entre líneas */
+    white-space: pre-wrap; /* Permite saltos de línea y espacios como en <pre> */
+    word-break: break-all; /* Evita overflow horizontal con palabras largas */
 }
 
+/* Contenedor para la línea del prompt y el input */
 .terminal-prompt-line {
-    display: flex;
-    align-items: center;
+    display: flex; /* Para alinear el prompt y el input en la misma línea */
+    align-items: center; /* Alineación vertical */
     margin-top: 0.4rem;
 }
 
+/* Estilos para las partes del prompt: usuario, host, ruta, símbolo $ */
 .terminal-prompt span.user {
     color: var(--terminal-prompt-user);
     font-weight: bold;
@@ -216,19 +277,22 @@ body {
     margin-right: 0.4rem;
 }
 
+/* Campo de entrada de texto de la terminal */
 .terminal-input {
-    background-color: transparent;
-    border: none;
-    color: var(--primary-text);
-    font-family: 'Cascadia Code', 'Roboto Mono', monospace;
-    font-size: 0.85rem;
-    outline: none;
-    flex-grow: 1;
+    background-color: transparent; /* Sin fondo propio */
+    border: none; /* Sin borde */
+    color: var(--primary-text); /* Hereda color de texto primario */
+    font-family: inherit; /* Hereda la fuente de la terminal */
+    font-size: inherit;   /* Hereda el tamaño de fuente de la terminal */
+    outline: none; /* Sin contorno al enfocar */
+    flex-grow: 1; /* Ocupa el espacio restante en la línea del prompt */
     padding-left: 0.2rem;
 }
 .terminal-input::placeholder {
-    color: rgba(201, 209, 217, 0.35);
+    color: rgba(201, 209, 217, 0.35); /* Placeholder sutil */
 }
+
+/* Estilos para nombres de archivo y directorio en la salida de 'ls' */
 .filename {
     color: var(--primary-text);
 }
@@ -236,43 +300,55 @@ body {
     color: var(--accent-blue);
     font-weight: bold;
 }
+
+/* Clases para indicar éxito o error en la salida de la terminal */
 .success-text {
     color: var(--accent-green-muted);
 }
 .error-text {
     color: var(--accent-red-muted);
 }
-.challenge-text {
+.challenge-text { /* Para texto relacionado con el modo desafío */
     color: var(--accent-purple);
     font-style: italic;
 }
+
+/* Estilos para el banner ASCII (si se usa) */
 .ascii-banner span {
-    display: block;
-    line-height: 1;
-    white-space: pre;
-    font-size: 0.9em;
+    display: block; /* Cada línea del banner en su propia línea */
+    line-height: 1; /* Ajuste fino de interlineado */
+    white-space: pre; /* Mantiene los espacios para el arte ASCII */
+    font-size: 0.9em; /* Ligeramente más pequeño */
 }
+
+/* Estilo para las descripciones de los comandos en la ayuda de la terminal */
 .terminal-description {
     color: var(--text-description-terminal);
     font-style: italic;
 }
 
-/* Efecto hover para letras individuales */
+/*-----------------------------------------------------------------------------
+ * EFECTO "GLITCH" EN LETRAS INDIVIDUALES (CYBER-LETTER)
+ *-----------------------------------------------------------------------------*/
 .cyber-letter {
-    display: inline-block;
-    position: relative;
-    transition: color 0.05s ease-in-out, transform 0.05s ease-in-out;
+    display: inline-block; /* Permite transformaciones */
+    position: relative; /* Necesario para algunos efectos de posicionamiento si se usan */
+    transition: color 0.05s ease-in-out, transform 0.05s ease-in-out; /* Transiciones rápidas */
 }
 
+/* Estilo cuando una letra está en estado "glitching" (activado por JS) */
 .cyber-letter.glitching {
-    color: var(--accent-purple) !important;
+    color: var(--accent-purple) !important; /* Color púrpura, !important para sobrescribir si es necesario */
+    /* Pequeña transformación para el efecto de "fallo" */
     transform: translate(1px, -1px) skewX(-5deg) scale(1.1);
-    text-shadow: 0 0 2px var(--accent-purple), 0 0 4px var(--accent-red-muted);
-    animation: quickGlitch 0.08s forwards;
+    text-shadow: 0 0 2px var(--accent-purple), 0 0 4px var(--accent-red-muted); /* Sombra de texto múltiple */
+    animation: quickGlitch 0.08s forwards; /* Animación rápida para el "glitch" */
 }
 
+/* Animación sutil para el efecto "glitch" momentáneo */
 @keyframes quickGlitch {
-    0% { transform: translate(0,0) skewX(0) scale(1); opacity: 1;}
-    50% { transform: translate(0.5px, -0.5px) skewX(-2deg) scale(1.05); opacity: 0.8;}
-    100% { transform: translate(0,0) skewX(0) scale(1); opacity: 1;}
+    0%    { transform: translate(0,0) skewX(0) scale(1); opacity: 1;}
+    /* A mitad de la animación, un pequeño desplazamiento y distorsión */
+    50%   { transform: translate(0.5px, -0.5px) skewX(-2deg) scale(1.05); opacity: 0.8;}
+    100%  { transform: translate(0,0) skewX(0) scale(1); opacity: 1;} /* Vuelve al estado normal */
 }
